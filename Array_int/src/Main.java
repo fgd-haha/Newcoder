@@ -1,3 +1,6 @@
+ import com.sun.media.sound.SoftTuning;
+
+ import java.net.SocketTimeoutException;
  import java.util.*;
 
 
@@ -5,55 +8,78 @@
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        int color = in.nextInt();
-        int white = in.nextInt();
-        int a = in.nextInt();
-        int b = in.nextInt();
-        int c = in.nextInt();
-        int d = in.nextInt();
-        int x = in.nextInt();
-        int y = in.nextInt();
-        int z = in.nextInt();
+        while (in.hasNextInt()) {
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int[] a = new int[m];
 
-        double value_ab = (double) x / (a + b);
-        double value_c = (double)y / c;
-        double value_d = (double)z / d;
+            for (int i = 0; i < m; i++) {
+                a[i] = in.nextInt();
+            }
 
-        TreeMap<String, Double> map = new TreeMap<>();
-        map.put("ab", value_ab);
-        map.put("c", value_c);
-        map.put("d", value_d);
+//        System.out.println(Arrays.toString(a));
 
-        Comparator<Map.Entry<String, Double>> valueComparator = (o1, o2) -> (o2.getValue().compareTo(o1.getValue()));
-        ArrayList<Map.Entry<String, Double>> list = new ArrayList(map.entrySet());
-        list.sort(valueComparator);
+            int[] result = new int[1000000];
+            int count;
+            int j = 0;
+            result[0] = a[0];
 
-        int value = 0;
-        for (int i = 0; i < 3; i++) {
-            String s = list.get(i).getKey();
-            switch (s) {
-                case "ab": {
-                    int min = Math.min(color / a, white / b);
-                    value += min * x;
-                    color -= min * a;
-                    white -= min * b;
+            if (a[0] == 1) result[1] = a[1];
+//        System.out.println(result[0]);
+            int t = 0;
+            for (int i = 0; i < m; i++) {
+                count = result[t++];
+                for (int k = 0; k < count; k++) {
+                    result[j++] = a[i];
+                }
+
+                if (j == n || t == n) {
                     break;
                 }
-                case "c": {
-                    int min = white / c;
-                    value += min * y;
-                    white -= min * c;
-                    break;
-                }
-                case "d": {
-                    int min = color / d;
-                    value += min * z;
-                    color -= min * d;
-                    break;
-                }
+
+                if (i == m - 1) i = -1;
+            }
+
+            for (int i = 0; i < n; i++) {
+                System.out.println(result[i]);
             }
         }
-
-        System.out.println(value);
     }
  }
+
+
+
+
+
+
+
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Scanner;
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        while (in.hasNextLine()) {
+//            String[] ss = (in.nextLine().split(" "));
+//
+//            ArrayList<Integer[]> list = new ArrayList<>();
+//            int[] line = new int[6];
+//            boolean end = true;
+//            for (int i = 0; i < 6; i++) {
+//                line[i] = Integer.parseInt(ss[i]);
+//                if (line[i] != 0) {
+//                    end = false;
+//                }
+//            }
+//
+//            ArrayList<Integer> result = new ArrayList<>();
+//            if (end == true) {
+//
+//
+//            }
+//
+//        }
+//    }
+//}
