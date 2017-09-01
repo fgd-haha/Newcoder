@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Newcoder.iml" filepath="$PROJECT_DIR$/.idea/Newcoder.iml" />
       <module fileurl="file://$PROJECT_DIR$/Other/Other.iml" filepath="$PROJECT_DIR$/Other/Other.iml" />
       <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tree/Tree.iml" filepath="$PROJECT_DIR$/Tree/Tree.iml" />
     </modules>
   </component>
 </project>
