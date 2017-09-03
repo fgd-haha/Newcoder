@@ -8,7 +8,7 @@ public class ReConstructBinaryTree {
         int[] pre = {1, 2, 4, 7, 3, 5, 6, 8};
         int[] in = {4, 7, 2, 1, 5, 3, 8, 6};
         TreeNode tn = reConstructBinaryTree(pre, in);
-        print(tn);
+        tn.midOderPrint();
     }
 
     static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
@@ -31,14 +31,5 @@ public class ReConstructBinaryTree {
         }
 
         return root;
-    }
-
-    private static void print(TreeNode treeNode) {
-        if (treeNode == null) {
-            return;
-        }
-        print(treeNode.left);
-        System.out.print(treeNode.val + " ");
-        print(treeNode.right);
     }
 }
