@@ -48,5 +48,7 @@ public class TreeNode {
         if (this.right != null)
             this.right.afterOderPrint();
         System.out.print(this.val + " ");
+        if (this.left == null && this.right == null)
+            System.out.println();
     }
 }
