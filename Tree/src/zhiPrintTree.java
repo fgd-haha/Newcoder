@@ -7,10 +7,6 @@ public class zhiPrintTree {
         TreeNode node = new TreeNode();
         node.midOderPrint();
         System.out.println();
-        node.preOderPrint();
-        System.out.println();
-        node.afterOderPrint();
-        System.out.println();
 
         ArrayList<ArrayList<Integer>> lists = Print(node);
         for (ArrayList<Integer> list : lists) {
