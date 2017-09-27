@@ -24,6 +24,7 @@ public class Yihuo {
             int[] dp = new int[n];
             dp[0] = arr[0] == 0 ? 1 : 0;
 
+//            优化：用个map保存
 //            int xor = 0;
 //            HashMap<Integer, Integer> map = new HashMap<>();
 //            map.put(0, -1);
@@ -47,7 +48,11 @@ public class Yihuo {
                     temp ^= arr[j];
 //                    System.out.println(i + "  " + j);
                     if (temp == 0) {
-                        dp[i] = Math.max(dp[i - 1], dp[j - 1] + 1);
+                        if (j != 0) {
+                            dp[i] = Math.max(dp[i - 1], dp[j - 1] + 1);
+                        } else {
+                            dp[i] = Math.max(dp[i - 1], 1);
+                        }
                         break;
                     }
                 }
